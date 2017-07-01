@@ -2,9 +2,20 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+
+
+
     # Define abilities for the passed in user here. For example:
     #
-    #   user ||= User.new # guest user (not logged in)
+      user ||= User.new # guest user (not logged in)
+
+    case user.id # a_variable is the variable we want to compare
+       when 1
+          can :manage, :all
+        else
+          can :read, ActiveAdmin::Page, :name =>"Dashboard"
+          can :manage, :all
+    end
     #   if user.admin?
     #     can :manage, :all
     #   else

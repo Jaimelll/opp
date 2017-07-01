@@ -19,7 +19,7 @@ ActiveAdmin.register Formula do
 end
 
 
-menu  priority: 3, label: "Productos"
+menu  priority: 2, label: "Productos"
 
 permit_params :nombre, :descripcion, :orden,
      :obs, :admin_user_id
