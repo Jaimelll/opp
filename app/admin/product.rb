@@ -24,9 +24,7 @@ menu  priority: 2, label: "Productos"
 permit_params :nombre, :descripcion, :orden,
      :obs, :admin_user_id
 
-     action_item :view, only: :show do
-       link_to 'Ir a Productos', admin_products_path()
-     end
+
 
 filter :nombre
 
@@ -36,7 +34,7 @@ index do
   column("nombre") do |producto|
      link_to "#{producto.nombre} ", admin_product_formulas_path(producto)
   end
-  column("nombre")
+
   column("descripcion")
   column("orden")
 
@@ -52,7 +50,7 @@ form do |f|
         f.input :nombre
         f.input :descripcion
         f.input :orden
-
+f.input :admin_user_id, :input_html => { :value => current_admin_user.id }, :as => :hidden
   end
 
 
@@ -69,30 +67,6 @@ end
 
 
 
-    show do
-      nn=Product.where(id:params[:id]).
-                 select('nombre as dd').first.dd.capitalize
 
-           panel "Formula de #{nn}" do
-
-        table_for(product.formulas.order('orden ASC')) do |t|
-          t.column("Nombre:", :sortable => :id) {|formula|
-                   link_to "#{formula.nombre} ",  admin_product_formula_path(product,formula) }
-
-          t.column("descripcion", :sortable => :id) {|formula|
-                   link_to "#{formula.descripcion.capitalize} ",  admin_product_formula_path(product,formula) }
-          t.column("orden")
-          t.column("cantidad")
-          t.column("numero")
-
-
-        end
-
-      end
-
-      strong { link_to 'Agregar formula', new_admin_product_formula_path(product) }
-
-
-  end
 
 end
