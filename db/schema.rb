@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170701163102) do
+ActiveRecord::Schema.define(version: 20170701180413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(version: 20170701163102) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "details", force: :cascade do |t|
+    t.integer  "area"
+    t.date     "pfecha"
+    t.string   "descripcion"
+    t.integer  "item_id"
+    t.integer  "admin_user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["admin_user_id"], name: "index_details_on_admin_user_id", using: :btree
+    t.index ["item_id"], name: "index_details_on_item_id", using: :btree
   end
 
   create_table "formulas", force: :cascade do |t|
@@ -87,6 +99,8 @@ ActiveRecord::Schema.define(version: 20170701163102) do
     t.index ["admin_user_id"], name: "index_products_on_admin_user_id", using: :btree
   end
 
+  add_foreign_key "details", "admin_users"
+  add_foreign_key "details", "items"
   add_foreign_key "formulas", "admin_users"
   add_foreign_key "formulas", "products"
   add_foreign_key "items", "admin_users"

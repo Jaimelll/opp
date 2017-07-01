@@ -3,6 +3,11 @@ ActiveAdmin.register Item do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 # permit_params :list, :of, :attributes, :on, :model
+ActiveAdmin.register Detail do
+belongs_to :item
+end
+
+
 menu  priority: 3, label: "Actividades"
 
 # or
@@ -34,6 +39,12 @@ filter :unidad, label:'Unidad de Medida', :as => :select, :collection =>
 
 index :title => 'Lista de Actividades' do
 
+  column("id") do |item|
+   link_to "#{item.id} ", admin_item_details_path(item)
+
+end
+
+  column("actividad")
 
   column("Responsable de Ejecucion")do |item|
              Formula.where(product_id:1, orden:item.responsable).
@@ -45,7 +56,7 @@ index :title => 'Lista de Actividades' do
               select('descripcion as dd').first.dd
   end
 
-  column("actividad")
+
 
   column("Unidad de medida")do |item|
              Formula.where(product_id:3, orden:item.unidad).
