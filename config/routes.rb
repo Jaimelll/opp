@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :items
   resources :formulas
   resources :products
   devise_for :admin_users, ActiveAdmin::Devise.config
