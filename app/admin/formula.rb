@@ -12,7 +12,7 @@ permit_params  :nombre, :descripcion,  :orden,
       end
      filter :nombre
        filter :orden
-       filter :numero
+       filter :cantidad
 
       index do
         column("nombre")do |formula|

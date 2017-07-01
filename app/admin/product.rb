@@ -60,6 +60,22 @@ f.input :admin_user_id, :input_html => { :value => current_admin_user.id }, :as 
 end
 
 
+show do
+
+
+          attributes_table do
+
+
+
+            row :nombre
+            row :descripcion
+            row :orden
+            row :admin_user_id
+          end
+
+      end
+
+
 
 
 
