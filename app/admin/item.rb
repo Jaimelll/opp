@@ -34,6 +34,24 @@ filter :unidad, label:'Unidad de Medida', :as => :select, :collection =>
 
 
 
+     scope :Avance, :default => true do |item|
+       @res1=Formula.where(product_id:1,cantidad:1).
+               select('orden as dd').first.dd
+              item.where(responsable: @res1)
+            end
+
+
+     scope :Todos, :default => true do |item|
+                item.all
+         end
+
+
+
+
+
+
+
+
 
 
 
@@ -129,6 +147,19 @@ end
           end
         end
 
+        sidebar "Responsable de Ejecucion" do
+          @res=Formula.where(product_id:1,cantidad:1).
+              select('nombre as dd').first.dd
+
+          ul do
+            li @res
+
+
+          end
+
+
+
+        end # de sider
 
 
 
