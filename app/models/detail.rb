@@ -3,7 +3,7 @@ class Detail < ApplicationRecord
 
     validates :area, presence: true
     validates :pfecha, presence: true
-    validates :descripcion, presence: true
+  #  validates :descripcion, presence: true
     validates :cantidad, presence: true
 
 

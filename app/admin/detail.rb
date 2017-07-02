@@ -14,6 +14,24 @@ ActiveAdmin.register Detail do
 
 menu  false
 
+scope :Avance, :default => true do |deta|
+         deta.where(area:2)
+       end
+
+
+scope :Plan, :default => true do |deta|
+           deta.where(area:1)
+    end
+
+
+
+
+
+filter :area, label:'Plan o Avance', :as => :select, :collection =>
+     Formula.where(product_id:4).order('nombre ASC').map{|u| ["#{u.nombre}", u.orden]}
+
+filter :descripcion
+filter :pfecha, label:'Fecha'
 
 
 permit_params :area, :pfecha,:descripcion,  :admin_user_id,
@@ -78,6 +96,33 @@ show :title => ' Partes'  do
 
       end
     end
+
+    sidebar "Datos de Actividad" do
+      if params[:item_id] then
+         n1=Item.where(id:  params[:item_id]).
+                  select('actividad as dd').first.dd.capitalize
+
+          n2=Item.where(id:  params[:item_id]).
+                   select('responsable as dd').first.dd
+
+
+
+          nn=Formula.where(product:1,orden:n2).
+               select('nombre as dd').first.dd.capitalize
+
+
+      ul do
+        li "Responsable:   "+nn
+        li "Actividad: "+n1
+
+      end
+
+
+    end# de if
+    end # de sider
+
+
+
 
 
 
