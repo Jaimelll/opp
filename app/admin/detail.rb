@@ -16,7 +16,8 @@ menu  false
 
 
 
-permit_params :area, :pfecha,:descripcion,  :admin_user_id, :item_id
+permit_params :area, :pfecha,:descripcion,  :admin_user_id,
+              :item_id, :cantidad
 
 index :title => "Lista de Partes" do
 
@@ -30,6 +31,7 @@ index :title => "Lista de Partes" do
   end
 
   column("descripcion")
+  column("cantidad")
 
 
     actions
@@ -43,10 +45,10 @@ form :title => 'Edicion Parte'  do |f|
           f.input :area,:label => 'Plan o Avance', :as => :select, :collection =>
             Formula.where(product_id:4).order('nombre').map{|u| [u.nombre, u.orden]}
 
-
          f.input :pfecha, :label => 'fecha' ,:as =>:string, :input_html => { :style =>  'width:30%'}
 
           f.input :descripcion
+          f.input :cantidad
           f.input :admin_user_id, :input_html => { :value => current_admin_user.id }, :as => :hidden
 
                  f.actions
@@ -54,6 +56,7 @@ form :title => 'Edicion Parte'  do |f|
           end
 
 end
+
 
 show :title => ' Partes'  do
 
@@ -69,6 +72,7 @@ show :title => ' Partes'  do
          deta.pfecha
       end
         row :descripcion
+        row :cantidad
 
 
 

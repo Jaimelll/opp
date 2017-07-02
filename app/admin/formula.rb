@@ -5,6 +5,25 @@ permit_params  :nombre, :descripcion,  :orden,
    :cantidad, :admin_user_id, :product_id,  :numero,
    :pfecha
 
+   member_action :jefatura, method: :put do
+            @num=Formula.where(product_id: 1, orden:1).
+                   select('id as dd').first.dd
+           Formula.where( product_id:1 ).update_all( cantidad:0 )
+           Formula.where( product_id:1 ,orden:1).update_all( cantidad:1 )
+           redirect_to admin_dashboard_path
+   end
+
+
+   member_action :secretaria, method: :put do
+            @num=Formula.where(product_id: 1, orden:2).
+                   select('id as dd').first.dd
+           Formula.where( product_id:1 ).update_all( cantidad:0 )
+           Formula.where( product_id:1 ,orden:2).update_all( cantidad:1 )
+           redirect_to admin_dashboard_path
+   end
+
+
+
 
 
       action_item :view, only: :show do

@@ -1,10 +1,11 @@
 class Detail < ApplicationRecord
 
 
-    validates :parte, presence: true
+    validates :area, presence: true
     validates :pfecha, presence: true
     validates :descripcion, presence: true
-    
+    validates :cantidad, presence: true
+
 
 
 
