@@ -22,6 +22,14 @@ permit_params  :nombre, :descripcion,  :orden,
            redirect_to admin_dashboard_path
    end
 
+   member_action :oci, method: :put do
+            @num=Formula.where(product_id: 1, orden:3).
+                   select('id as dd').first.dd
+           Formula.where( product_id:1 ).update_all( cantidad:0 )
+           Formula.where( product_id:1 ,orden:3).update_all( cantidad:1 )
+           redirect_to admin_dashboard_path
+   end
+
 
 
 

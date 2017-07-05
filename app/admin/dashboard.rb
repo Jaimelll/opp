@@ -7,10 +7,25 @@ menu  priority: 0
 
       link_to   'DJ', jefatura_admin_product_formula_path(1, :@num), method: :put
   end
+
+
   action_item :only=> :index do
 
       link_to   'SG', secretaria_admin_product_formula_path(1, :@num), method: :put
   end
+
+  action_item :only=> :index do
+
+      link_to   'OCI', oci_admin_product_formula_path(1, :@num), method: :put
+  end
+
+
+
+
+
+
+
+
 
   content title: proc{ I18n.t("active_admin.dashboard") } do
 
