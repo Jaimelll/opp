@@ -32,6 +32,89 @@ permit_params  :nombre, :descripcion,  :orden,
 
 
 
+member_action :osj, method: :put do
+         @num=Formula.where(product_id: 1, orden:4).
+                select('id as dd').first.dd
+        Formula.where( product_id:1 ).update_all( cantidad:0 )
+        Formula.where( product_id:1 ,orden:4).update_all( cantidad:1 )
+        redirect_to admin_dashboard_path
+end
+
+member_action :opp, method: :put do
+         @num=Formula.where(product_id: 1, orden:5).
+                select('id as dd').first.dd
+        Formula.where( product_id:1 ).update_all( cantidad:0 )
+        Formula.where( product_id:1 ,orden:5).update_all( cantidad:1 )
+        redirect_to admin_dashboard_path
+end
+
+
+
+member_action :upp, method: :put do
+         @num=Formula.where(product_id: 1, orden:6).
+                select('id as dd').first.dd
+        Formula.where( product_id:1 ).update_all( cantidad:0 )
+        Formula.where( product_id:1 ,orden:6).update_all( cantidad:1 )
+        redirect_to admin_dashboard_path
+end
+
+member_action :ur, method: :put do
+         @num=Formula.where(product_id: 1, orden:7).
+                select('id as dd').first.dd
+        Formula.where( product_id:1 ).update_all( cantidad:0 )
+        Formula.where( product_id:1 ,orden:7).update_all( cantidad:1 )
+        redirect_to admin_dashboard_path
+end
+
+member_action :oga, method: :put do
+         @num=Formula.where(product_id: 1, orden:8).
+                select('id as dd').first.dd
+        Formula.where( product_id:1 ).update_all( cantidad:0 )
+        Formula.where( product_id:1 ,orden:8).update_all( cantidad:1 )
+        redirect_to admin_dashboard_path
+end
+
+
+
+member_action :oi, method: :put do
+         @num=Formula.where(product_id: 1, orden:9).
+                select('id as dd').first.dd
+        Formula.where( product_id:1 ).update_all( cantidad:0 )
+        Formula.where( product_id:1 ,orden:9).update_all( cantidad:1 )
+        redirect_to admin_dashboard_path
+end
+
+
+
+
+member_action :dc, method: :put do
+         @num=Formula.where(product_id: 1, orden:10).
+                select('id as dd').first.dd
+        Formula.where( product_id:1 ).update_all( cantidad:0 )
+        Formula.where( product_id:1 ,orden:10).update_all( cantidad:1 )
+        redirect_to admin_dashboard_path
+end
+
+member_action :dem, method: :put do
+         @num=Formula.where(product_id: 1, orden:11).
+                select('id as dd').first.dd
+        Formula.where( product_id:1 ).update_all( cantidad:0 )
+        Formula.where( product_id:1 ,orden:11).update_all( cantidad:1 )
+        redirect_to admin_dashboard_path
+end
+
+
+member_action :dec, method: :put do
+         @num=Formula.where(product_id: 1, orden:12).
+                select('id as dd').first.dd
+        Formula.where( product_id:1 ).update_all( cantidad:0 )
+        Formula.where( product_id:1 ,orden:12).update_all( cantidad:1 )
+        redirect_to admin_dashboard_path
+end
+
+
+
+
 
 
       action_item :view, only: :show do

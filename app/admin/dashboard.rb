@@ -4,27 +4,56 @@ menu  priority: 1,label: proc{ I18n.t("active_admin.dashboard") }
 
 menu  priority: 0
   action_item :only=> :index do
-
       link_to   'DJ', jefatura_admin_product_formula_path(1, :@num), method: :put
   end
 
 
   action_item :only=> :index do
-
       link_to   'SG', secretaria_admin_product_formula_path(1, :@num), method: :put
   end
 
   action_item :only=> :index do
-
       link_to   'OCI', oci_admin_product_formula_path(1, :@num), method: :put
+  end
+
+  action_item :only=> :index do
+      link_to   'OSJ', osj_admin_product_formula_path(1, :@num), method: :put
+  end
+
+  action_item :only=> :index do
+      link_to   'OPP', opp_admin_product_formula_path(1, :@num), method: :put
+  end
+
+  action_item :only=> :index do
+      link_to   'UPP', upp_admin_product_formula_path(1, :@num), method: :put
+  end
+
+  action_item :only=> :index do
+      link_to   'UR', ur_admin_product_formula_path(1, :@num), method: :put
+  end
+
+  action_item :only=> :index do
+      link_to   'OGA', oga_admin_product_formula_path(1, :@num), method: :put
   end
 
 
 
+  action_item :only=> :index do
+      link_to   'OI', oi_admin_product_formula_path(1, :@num), method: :put
+  end
+
+  action_item :only=> :index do
+      link_to   'DC', dc_admin_product_formula_path(1, :@num), method: :put
+  end
+
+  action_item :only=> :index do
+      link_to   'DEM', dem_admin_product_formula_path(1, :@num), method: :put
+  end
 
 
-
-
+    action_item :only=> :index do
+        link_to   'DEC', dec_admin_product_formula_path(1, :@num), method: :put
+    end
 
 
   content title: proc{ I18n.t("active_admin.dashboard") } do
