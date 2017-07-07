@@ -14,7 +14,9 @@ class Ability
           can :manage, :all
         else
           can :read, ActiveAdmin::Page, :name =>"Dashboard"
-
+          
+            can [:read], Item
+                can [:create,:read,:update,:destroy],  Detail
     end
     #   if user.admin?
     #     can :manage, :all
