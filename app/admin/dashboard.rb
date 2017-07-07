@@ -72,6 +72,9 @@ columns do
                       column("PROGRAMA" ) do |item|
                           item.actividad
                         end
+                        column("Unidad " ) do |item|
+                              Formula.where(product_id:3,orden:  item.unidad).select('nombre as dd').first.dd
+                            end
 
                       column("ENE") do |item|
                           Detail.where(item_id:item.id,area:1).
@@ -93,6 +96,47 @@ columns do
                           where("pfecha>='2017/04/01'and pfecha<'2017/05/01'").
                           sum(:cantidad)
                       end
+                      column("MAY") do |item|
+                          Detail.where(item_id:item.id,area:1).
+                          where("pfecha>='2017/05/01'and pfecha<'2017/06/01'").
+                          sum(:cantidad)
+                      end
+                      column("JUN") do |item|
+                          Detail.where(item_id:item.id,area:1).
+                          where("pfecha>='2017/06/01'and pfecha<'2017/07/01'").
+                          sum(:cantidad)
+                      end
+                      column("JUL") do |item|
+                          Detail.where(item_id:item.id,area:1).
+                          where("pfecha>='2017/07/01'and pfecha<'2017/08/01'").
+                          sum(:cantidad)
+                      end
+                      column("AGO") do |item|
+                          Detail.where(item_id:item.id,area:1).
+                          where("pfecha>='2017/08/01'and pfecha<'2017/09/01'").
+                          sum(:cantidad)
+                      end
+                      column("SET") do |item|
+                          Detail.where(item_id:item.id,area:1).
+                          where("pfecha>='2017/09/01'and pfecha<'2017/10/01'").
+                          sum(:cantidad)
+                      end
+                      column("OCT") do |item|
+                          Detail.where(item_id:item.id,area:1).
+                          where("pfecha>='2017/10/01'and pfecha<'2017/11/01'").
+                          sum(:cantidad)
+                      end
+                      column("NOV") do |item|
+                          Detail.where(item_id:item.id,area:1).
+                          where("pfecha>='2017/11/01'and pfecha<'2017/12/01'").
+                          sum(:cantidad)
+                      end
+                      column("DIC") do |item|
+                          Detail.where(item_id:item.id,area:1).
+                          where("pfecha>='2017/12/01'and pfecha<'2018/01/01'").
+                          sum(:cantidad)
+                      end
+
 
 
                   end # de table_for
@@ -105,6 +149,10 @@ columns do
                            column("AVANCE" ) do |item|
                                item.actividad
                              end
+                             column("Unidad " ) do |item|
+                                   Formula.where(product_id:3,orden:  item.unidad).select('nombre as dd').first.dd
+                                 end
+
 
                            column("ENE") do |item|
                                Detail.where(item_id:item.id,area:2).
@@ -126,7 +174,46 @@ columns do
                                where("pfecha>='2017/04/01'and pfecha<'2017/05/01'").
                                sum(:cantidad)
                            end
-
+                           column("MAY") do |item|
+                               Detail.where(item_id:item.id,area:2).
+                               where("pfecha>='2017/05/01'and pfecha<'2017/06/01'").
+                               sum(:cantidad)
+                           end
+                           column("JUN") do |item|
+                               Detail.where(item_id:item.id,area:2).
+                               where("pfecha>='2017/06/01'and pfecha<'2017/07/01'").
+                               sum(:cantidad)
+                           end
+                           column("JUL") do |item|
+                               Detail.where(item_id:item.id,area:2).
+                               where("pfecha>='2017/07/01'and pfecha<'2017/08/01'").
+                               sum(:cantidad)
+                           end
+                           column("AGO") do |item|
+                               Detail.where(item_id:item.id,area:2).
+                               where("pfecha>='2017/08/01'and pfecha<'2017/09/01'").
+                               sum(:cantidad)
+                           end
+                           column("SET") do |item|
+                               Detail.where(item_id:item.id,area:2).
+                               where("pfecha>='2017/09/01'and pfecha<'2017/10/01'").
+                               sum(:cantidad)
+                           end
+                           column("OCT") do |item|
+                               Detail.where(item_id:item.id,area:2).
+                               where("pfecha>='2017/10/01'and pfecha<'2017/11/01'").
+                               sum(:cantidad)
+                           end
+                           column("NOV") do |item|
+                               Detail.where(item_id:item.id,area:2).
+                               where("pfecha>='2017/11/01'and pfecha<'2017/12/01'").
+                               sum(:cantidad)
+                           end
+                           column("DIC") do |item|
+                               Detail.where(item_id:item.id,area:2).
+                               where("pfecha>='2017/12/01'and pfecha<'2018/01/01'").
+                               sum(:cantidad)
+                           end
 
                        end # de table_for
 
@@ -138,6 +225,9 @@ columns do
                             column("%AVANCE" ) do |item|
                                 item.actividad
                               end
+                            column("Unidad " ) do |item|
+                                  Formula.where(product_id:3,orden:  item.unidad).select('nombre as dd').first.dd
+                                end
 
                             column("ENE") do |item|
                             @aa=  Detail.where(item_id:item.id,area:2).
@@ -204,6 +294,143 @@ columns do
 
                                 number_to_percentage(@cc, precision: 0)
                             end
+                            column("MAY") do |item|
+                              @aa=  Detail.where(item_id:item.id,area:2).
+                                  where("pfecha>='2017/05/01'and pfecha<'2017/06/01'").
+                                  sum(:cantidad)
+                              @bb=    Detail.where(item_id:item.id,area:1).
+                                  where("pfecha>='2017/05/01'and pfecha<'2017/06/01'").
+                                  sum(:cantidad)
+
+                                if @bb>0 then
+                                   @cc=(@aa*100/@bb)
+                                  else
+                                   @cc=0
+                                  end
+
+                                number_to_percentage(@cc, precision: 0)
+                            end
+                            column("JUN") do |item|
+                              @aa=  Detail.where(item_id:item.id,area:2).
+                                  where("pfecha>='2017/06/01'and pfecha<'2017/07/01'").
+                                  sum(:cantidad)
+                              @bb=    Detail.where(item_id:item.id,area:1).
+                                  where("pfecha>='2017/06/01'and pfecha<'2017/07/01'").
+                                  sum(:cantidad)
+
+                                if @bb>0 then
+                                   @cc=(@aa*100/@bb)
+                                  else
+                                   @cc=0
+                                  end
+
+                                number_to_percentage(@cc, precision: 0)
+                            end
+                            column("JUL") do |item|
+                              @aa=  Detail.where(item_id:item.id,area:2).
+                                  where("pfecha>='2017/07/01'and pfecha<'2017/08/01'").
+                                  sum(:cantidad)
+                              @bb=    Detail.where(item_id:item.id,area:1).
+                                  where("pfecha>='2017/07/01'and pfecha<'2017/08/01'").
+                                  sum(:cantidad)
+
+                                if @bb>0 then
+                                   @cc=(@aa*100/@bb)
+                                  else
+                                   @cc=0
+                                  end
+
+                                number_to_percentage(@cc, precision: 0)
+                            end
+                            column("AGO") do |item|
+                              @aa=  Detail.where(item_id:item.id,area:2).
+                                  where("pfecha>='2017/08/01'and pfecha<'2017/09/01'").
+                                  sum(:cantidad)
+                              @bb=    Detail.where(item_id:item.id,area:1).
+                                  where("pfecha>='2017/08/01'and pfecha<'2017/09/01'").
+                                  sum(:cantidad)
+
+                                if @bb>0 then
+                                   @cc=(@aa*100/@bb)
+                                  else
+                                   @cc=0
+                                  end
+
+                                number_to_percentage(@cc, precision: 0)
+                            end
+                            column("SET") do |item|
+                              @aa=  Detail.where(item_id:item.id,area:2).
+                                  where("pfecha>='2017/09/01'and pfecha<'2017/10/01'").
+                                  sum(:cantidad)
+                              @bb=    Detail.where(item_id:item.id,area:1).
+                                  where("pfecha>='2017/09/01'and pfecha<'2017/10/01'").
+                                  sum(:cantidad)
+
+                                if @bb>0 then
+                                   @cc=(@aa*100/@bb)
+                                  else
+                                   @cc=0
+                                  end
+
+                                number_to_percentage(@cc, precision: 0)
+                            end
+                            column("OCT") do |item|
+                              @aa=  Detail.where(item_id:item.id,area:2).
+                                  where("pfecha>='2017/10/01'and pfecha<'2017/11/01'").
+                                  sum(:cantidad)
+                              @bb=    Detail.where(item_id:item.id,area:1).
+                                  where("pfecha>='2017/10/01'and pfecha<'2017/11/01'").
+                                  sum(:cantidad)
+
+                                if @bb>0 then
+                                   @cc=(@aa*100/@bb)
+                                  else
+                                   @cc=0
+                                  end
+
+                                number_to_percentage(@cc, precision: 0)
+                            end
+                            column("NOV") do |item|
+                              @aa=  Detail.where(item_id:item.id,area:2).
+                                  where("pfecha>='2017/11/01'and pfecha<'2017/12/01'").
+                                  sum(:cantidad)
+                              @bb=    Detail.where(item_id:item.id,area:1).
+                                  where("pfecha>='2017/11/01'and pfecha<'2017/12/01'").
+                                  sum(:cantidad)
+
+                                if @bb>0 then
+                                   @cc=(@aa*100/@bb)
+                                  else
+                                   @cc=0
+                                  end
+
+                                number_to_percentage(@cc, precision: 0)
+                            end
+                            column("DIC") do |item|
+                              @aa=  Detail.where(item_id:item.id,area:2).
+                                  where("pfecha>='2017/12/01'and pfecha<'2018/01/01'").
+                                  sum(:cantidad)
+                              @bb=    Detail.where(item_id:item.id,area:1).
+                                  where("pfecha>='2017/12/01'and pfecha<'2018/01/01'").
+                                  sum(:cantidad)
+
+                                if @bb>0 then
+                                   @cc=(@aa*100/@bb)
+                                  else
+                                   @cc=0
+                                  end
+
+                                number_to_percentage(@cc, precision: 0)
+                            end
+
+
+
+
+
+
+
+
+
 
 
                         end # de table_for
