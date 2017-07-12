@@ -49,7 +49,9 @@ menu  priority: 0
   action_item :only=> :index do
       link_to   'DEM', dem_admin_product_formula_path(1, :@num), method: :put
   end
-
+  action_item :only=> :index do
+      link_to   'DPC'
+      end
 
     action_item :only=> :index do
         link_to   'DEC', dec_admin_product_formula_path(1, :@num), method: :put
