@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :activities
+  resources :sheets
   resources :details
   resources :items
   resources :formulas

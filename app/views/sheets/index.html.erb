@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sheets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo ficha</th>
+      <th>Codigo revision</th>
+      <th>Creada</th>
+      <th>Revisada</th>
+      <th>Descripcion original</th>
+      <th>Descripcion</th>
+      <th>Grupo</th>
+      <th>Clase</th>
+      <th>Cna</th>
+      <th>Na</th>
+      <th>Soc</th>
+      <th>Caracteristica</th>
+      <th>Vigencia</th>
+      <th>Unidad medida</th>
+      <th>Admin user</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sheets.each do |sheet| %>
+      <tr>
+        <td><%= sheet.codigo_ficha %></td>
+        <td><%= sheet.codigo_revision %></td>
+        <td><%= sheet.creada %></td>
+        <td><%= sheet.revisada %></td>
+        <td><%= sheet.descripcion_original %></td>
+        <td><%= sheet.descripcion %></td>
+        <td><%= sheet.grupo %></td>
+        <td><%= sheet.clase %></td>
+        <td><%= sheet.cna %></td>
+        <td><%= sheet.na %></td>
+        <td><%= sheet.soc %></td>
+        <td><%= sheet.caracteristica %></td>
+        <td><%= sheet.vigencia %></td>
+        <td><%= sheet.unidad_medida %></td>
+        <td><%= sheet.admin_user %></td>
+        <td><%= link_to 'Show', sheet %></td>
+        <td><%= link_to 'Edit', edit_sheet_path(sheet) %></td>
+        <td><%= link_to 'Destroy', sheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sheet', new_sheet_path %>

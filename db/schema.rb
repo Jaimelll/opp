@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170702120840) do
+ActiveRecord::Schema.define(version: 20170802162342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(version: 20170702120840) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  end
+
+  create_table "activities", force: :cascade do |t|
+    t.date     "fechap"
+    t.integer  "estado"
+    t.date     "creada"
+    t.string   "observ"
+    t.integer  "sheet_id"
+    t.integer  "admin_user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["admin_user_id"], name: "index_activities_on_admin_user_id", using: :btree
+    t.index ["sheet_id"], name: "index_activities_on_sheet_id", using: :btree
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -100,10 +113,34 @@ ActiveRecord::Schema.define(version: 20170702120840) do
     t.index ["admin_user_id"], name: "index_products_on_admin_user_id", using: :btree
   end
 
+  create_table "sheets", force: :cascade do |t|
+    t.string   "codigo_ficha"
+    t.string   "codigo_revision"
+    t.date     "creada"
+    t.date     "revisada"
+    t.string   "descripcion_original"
+    t.string   "descripcion"
+    t.integer  "grupo"
+    t.integer  "clase"
+    t.string   "cna"
+    t.string   "na"
+    t.string   "soc"
+    t.string   "caracteristica"
+    t.integer  "vigencia"
+    t.integer  "unidad_medida"
+    t.integer  "admin_user_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["admin_user_id"], name: "index_sheets_on_admin_user_id", using: :btree
+  end
+
+  add_foreign_key "activities", "admin_users"
+  add_foreign_key "activities", "sheets"
   add_foreign_key "details", "admin_users"
   add_foreign_key "details", "items"
   add_foreign_key "formulas", "admin_users"
   add_foreign_key "formulas", "products"
   add_foreign_key "items", "admin_users"
   add_foreign_key "products", "admin_users"
+  add_foreign_key "sheets", "admin_users"
 end

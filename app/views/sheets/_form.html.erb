@@ -1,0 +1,92 @@
+<%= form_for(sheet) do |f| %>
+  <% if sheet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sheet.errors.count, "error") %> prohibited this sheet from being saved:</h2>
+
+      <ul>
+      <% sheet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :codigo_ficha %>
+    <%= f.text_field :codigo_ficha %>
+  </div>
+
+  <div class="field">
+    <%= f.label :codigo_revision %>
+    <%= f.text_field :codigo_revision %>
+  </div>
+
+  <div class="field">
+    <%= f.label :creada %>
+    <%= f.date_select :creada %>
+  </div>
+
+  <div class="field">
+    <%= f.label :revisada %>
+    <%= f.date_select :revisada %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descripcion_original %>
+    <%= f.text_field :descripcion_original %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :grupo %>
+    <%= f.number_field :grupo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :clase %>
+    <%= f.number_field :clase %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cna %>
+    <%= f.text_field :cna %>
+  </div>
+
+  <div class="field">
+    <%= f.label :na %>
+    <%= f.text_field :na %>
+  </div>
+
+  <div class="field">
+    <%= f.label :soc %>
+    <%= f.text_field :soc %>
+  </div>
+
+  <div class="field">
+    <%= f.label :caracteristica %>
+    <%= f.text_field :caracteristica %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vigencia %>
+    <%= f.number_field :vigencia %>
+  </div>
+
+  <div class="field">
+    <%= f.label :unidad_medida %>
+    <%= f.number_field :unidad_medida %>
+  </div>
+
+  <div class="field">
+    <%= f.label :admin_user_id %>
+    <%= f.text_field :admin_user_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

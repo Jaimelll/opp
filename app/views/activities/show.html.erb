@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fechap:</strong>
+  <%= @activity.fechap %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @activity.estado %>
+</p>
+
+<p>
+  <strong>Creada:</strong>
+  <%= @activity.creada %>
+</p>
+
+<p>
+  <strong>Observ:</strong>
+  <%= @activity.observ %>
+</p>
+
+<p>
+  <strong>Sheet:</strong>
+  <%= @activity.sheet %>
+</p>
+
+<p>
+  <strong>Admin user:</strong>
+  <%= @activity.admin_user %>
+</p>
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fechap: 2017-08-02
+  estado: 1
+  creada: 2017-08-02
+  observ: MyString
+  sheet: one
+  admin_user: one
+
+two:
+  fechap: 2017-08-02
+  estado: 1
+  creada: 2017-08-02
+  observ: MyString
+  sheet: two
+  admin_user: two

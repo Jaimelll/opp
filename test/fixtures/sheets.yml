@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo_ficha: MyString
+  codigo_revision: MyString
+  creada: 2017-08-02
+  revisada: 2017-08-02
+  descripcion_original: MyString
+  descripcion: MyString
+  grupo: 1
+  clase: 1
+  cna: MyString
+  na: MyString
+  soc: MyString
+  caracteristica: MyString
+  vigencia: 1
+  unidad_medida: 1
+  admin_user: one
+
+two:
+  codigo_ficha: MyString
+  codigo_revision: MyString
+  creada: 2017-08-02
+  revisada: 2017-08-02
+  descripcion_original: MyString
+  descripcion: MyString
+  grupo: 1
+  clase: 1
+  cna: MyString
+  na: MyString
+  soc: MyString
+  caracteristica: MyString
+  vigencia: 1
+  unidad_medida: 1
+  admin_user: two
