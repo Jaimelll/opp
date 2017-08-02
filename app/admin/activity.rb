@@ -12,4 +12,24 @@ ActiveAdmin.register Activity do
 #   permitted
 # end
 
+menu  false
+
+
+permit_params :fechap, :estado, :creada,
+     :observ, :sheet_id, :admin_user_id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 end
