@@ -27,8 +27,8 @@ scope :Plan, :default => true do |deta|
 
 
 
-filter :area, label:'Plan o Avance', :as => :select, :collection =>
-     Formula.where(product_id:4).order('nombre ASC').map{|u| ["#{u.nombre}", u.orden]}
+#filter :area, label:'Plan o Avance', :as => :select, :collection =>
+  #   Formula.where(product_id:4).order('nombre ASC').map{|u| ["#{u.nombre}", u.orden]}
 
 filter :descripcion
 filter :pfecha, label:'Fecha'

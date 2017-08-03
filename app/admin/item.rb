@@ -23,14 +23,14 @@ permit_params :objetivo, :actividad, :responsable,
 
 filter :actividad
 
-filter :responsable, label:'Responsable de Ejecucion', :as => :select, :collection =>
-     Formula.where(product_id:1).order('nombre ASC').map{|u| ["#{u.nombre}", u.orden]}
+#filter :responsable, label:'Responsable de Ejecucion', :as => :select, :collection =>
+#     Formula.where(product_id:1).order('nombre ASC').map{|u| ["#{u.nombre}", u.orden]}
 
-filter :objetivo, label:'Objetivo estrategico Institucional', :as => :select, :collection =>
-      Formula.where(product_id:2).order('descripcion ASC').map{|u| ["#{u.descripcion}", u.orden]}
+#filter :objetivo, label:'Objetivo estrategico Institucional', :as => :select, :collection =>
+  #    Formula.where(product_id:2).order('descripcion ASC').map{|u| ["#{u.descripcion}", u.orden]}
 
-filter :unidad, label:'Unidad de Medida', :as => :select, :collection =>
-     Formula.where(product_id:3).order('nombre ASC').map{|u| ["#{u.nombre}", u.orden]}
+#filter :unidad, label:'Unidad de Medida', :as => :select, :collection =>
+  #   Formula.where(product_id:3).order('nombre ASC').map{|u| ["#{u.nombre}", u.orden]}
 
 
 
