@@ -63,8 +63,8 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
 
               f.input :codigo_ficha, :input_html => { :style =>  'width:30%'}
               f.input :codigo_revision, :input_html => { :style =>  'width:30%'}
-              f.input :creada ,:as =>:string, :input_html => { :style =>  'width:30%'}
-              f.input :revisada ,:as =>:string, :input_html => { :style =>  'width:30%'}
+              f.input :creada,:label => 'fecha creacion' ,:as =>:string, :input_html => { :style =>  'width:30%'}
+              f.input :revisada,:label => 'fecha revision' ,:as =>:string, :input_html => { :style =>  'width:30%'}
               f.input :descripcion_original, :input_html => { :style =>  'width:30%'}
               f.input :descripcion, :input_html => { :style =>  'width:30%'}
               f.input :clase, :input_html => { :style =>  'width:30%'}
@@ -83,7 +83,38 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
            end
          end
 
+         show :title => ' Fichas'  do
 
+               attributes_table  do
+                row :codigo_ficha
+                row :codigo_revision
+                row "fecha creacion" do |ficha|
+                   ficha.creada
+                end
+               row "fecha revision" do |ficha|
+                    ficha.revisada
+                end
+            
+                row :descripcion_original
+                row :descripcion
+                row :grupo
+                row :clase
+                row :cna
+                row :na
+                row :soc
+                row :caracteristica
+                row :vigencia
+                row :unidad_medida
+
+
+
+
+
+
+
+
+               end
+             end
 
 
 
