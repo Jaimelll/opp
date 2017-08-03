@@ -22,12 +22,16 @@ permit_params :fechap, :estado, :creada,
 index :title => 'Lista de Detalles' do
 
        column("Fecha", :sortable => :fechap) do |deta|
+          if deta.fechap then
              deta.fechap.strftime("%d-%m-%Y")
+          end
         end
         column("estado")
 
        column("Fecha Creacion", :sortable => :creada) do |deta|
+         if  deta.creada then
              deta.creada.strftime("%d-%m-%Y")
+         end
        end
 
        column("observ")

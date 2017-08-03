@@ -34,10 +34,14 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
        column("codigo_ficha")
        column("codigo_revision")
        column("Creada", :sortable => :creada) do |ficha|
+         if ficha.creada then
              ficha.creada.strftime("%d-%m-%Y")
+         end
        end
        column("Revisada", :sortable => :revisada) do |ficha|
+         if ficha.revisada then
              ficha.revisada.strftime("%d-%m-%Y")
+         end
        end
        column("descripcion_original")
 
@@ -94,7 +98,7 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
                row "fecha revision" do |ficha|
                     ficha.revisada
                 end
-            
+
                 row :descripcion_original
                 row :descripcion
                 row :grupo
