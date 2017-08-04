@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  clase: 1
+  clase: MyString
   descripcion: MyString
   orden: 1
   admin_user: one
 
 two:
-  clase: 1
+  clase: MyString
   descripcion: MyString
   orden: 1
   admin_user: two

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803164803) do
+ActiveRecord::Schema.define(version: 20170804133541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20170803164803) do
   end
 
   create_table "catalogues", force: :cascade do |t|
-    t.integer  "clase"
+    t.string   "clase"
     t.string   "descripcion"
     t.integer  "orden"
     t.integer  "admin_user_id"

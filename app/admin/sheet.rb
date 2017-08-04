@@ -21,7 +21,7 @@ menu  priority: 4, label: "Fichas"
 permit_params :codigo_ficha, :codigo_revision, :creada,
      :revisada, :descripcion_original, :descripcion,
      :grupo, :clase, :cna, :na, :soc, :caracteristica,
-     :vigencia, :unidad_medida,:catalogue_id
+     :vigencia, :unidad_medida,:catalogue_id,
      :admin_user_id
 
      index :title => 'Lista de Fichas' do
@@ -48,8 +48,10 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
       column("descripcion")
 
       column("clase") do |ficha|
+        if ficha.catalogue_id then
         Catalogue.where(id:ficha.catalogue_id).
          select('clase as dd').first.dd
+        end
       end
       column("cna")
       column("na")
@@ -75,7 +77,7 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
               f.input :descripcion_original, :input_html => { :style =>  'width:30%'}
               f.input :descripcion, :input_html => { :style =>  'width:30%'}
               f.input :catalogue_id,:label => 'clase', :as => :select, :collection =>
-                Catalogue.order('orden').map{|u| [u.clase.to_s+"-"+u.descripcion, u.orden]}
+                Catalogue.order('orden').map{|u| [u.clase.to_s+"-"+u.descripcion, u.id]}
               f.input :cna, :input_html => { :style =>  'width:30%'}
               f.input :na, :input_html => { :style =>  'width:30%'}
               f.input :soc, :input_html => { :style =>  'width:30%'}
@@ -107,9 +109,11 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
                 row :descripcion
 
 
-                row("clase") do |ficha|
-                  Catalogue.where(id:ficha.catalogue_id).
-                   select('clase as dd').first.dd
+              row("clase") do |ficha|
+                 if ficha.catalogue_id then
+                Catalogue.where(id:ficha.catalogue_id).
+                  select('clase as dd').first.dd
+                 end
                 end
 
 

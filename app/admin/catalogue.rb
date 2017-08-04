@@ -11,14 +11,8 @@ ActiveAdmin.register Catalogue do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
-
 permit_params :clase, :descripcion, :orden,
      :admin_user_id
 
 
-
-
-
-     
 end
