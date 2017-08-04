@@ -11,8 +11,63 @@ ActiveAdmin.register Catalogue do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+menu  priority: 5, label: "Clase"
 permit_params :clase, :descripcion, :orden,
      :admin_user_id
+
+filter :clase
+filter :descripcion
+filter :orden
+
+
+
+
+     index :title => 'Lista de Clases' do
+
+             column("clase")
+             column("descripcion")
+             column("orden")
+
+
+
+              actions
+          end
+          form :title => 'Edicion Clase'  do |f|
+
+
+                  f.inputs  do
+
+                    f.input :clase, :input_html => { :style =>  'width:30%'}
+                    f.input :descripcion
+                    f.input :orden, :input_html => { :style =>  'width:30%'}
+                    f.input :admin_user_id, :input_html => { :value => current_admin_user.id }, :as => :hidden
+
+                           f.actions
+
+                    end
+
+          end
+
+          show :title => ' Clase'  do
+
+                attributes_table  do
+
+
+
+
+
+                row :clase
+                row :descripcion
+                row :orden
+
+
+
+                end
+              end
+
+
+
+
 
 
 end
