@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :catalogues
+  
   resources :activities
   resources :sheets
   resources :details
