@@ -47,7 +47,12 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
 
       column("descripcion")
 
-      column("clase")
+      column("clase") do |ficha|
+          if ficha.clase then
+            List.where(id:ficha.clase).
+              select('clase as dd').first.dd
+         end
+      end
       column("cna")
       column("na")
       column("soc")
@@ -71,7 +76,9 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
               f.input :revisada,:label => 'fecha revision' ,:as =>:string, :input_html => { :style =>  'width:30%'}
               f.input :descripcion_original, :input_html => { :style =>  'width:30%'}
               f.input :descripcion, :input_html => { :style =>  'width:30%'}
-              f.input :clase, :input_html => { :style =>  'width:30%'}
+              f.input :clase, :as => :select, :collection =>
+                List.order('orden').map{|u| [u.clase+"-"+u.descripcion, u.orden]}
+
               f.input :cna, :input_html => { :style =>  'width:30%'}
               f.input :na, :input_html => { :style =>  'width:30%'}
               f.input :soc, :input_html => { :style =>  'width:30%'}
@@ -103,7 +110,12 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
                 row :descripcion
 
 
-              row("clase") 
+              row("clase") do |ficha|
+                  if ficha.clase then
+                    List.where(id:ficha.clase).
+                      select('clase as dd').first.dd
+                 end
+              end
 
                 row :cna
                 row :na

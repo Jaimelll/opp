@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  clase: MyString
+  descripcion: 1
+  orde: MyString
+  'n': 1
+  admin_user: one
+
+two:
+  clase: MyString
+  descripcion: 1
+  orde: MyString
+  'n': 1
+  admin_user: two

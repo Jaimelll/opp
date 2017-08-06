@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802162342) do
+ActiveRecord::Schema.define(version: 20170805234600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,16 @@ ActiveRecord::Schema.define(version: 20170802162342) do
     t.index ["admin_user_id"], name: "index_items_on_admin_user_id", using: :btree
   end
 
+  create_table "lists", force: :cascade do |t|
+    t.string   "clase"
+    t.string   "descripcion"
+    t.integer  "orden"
+    t.integer  "admin_user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["admin_user_id"], name: "index_lists_on_admin_user_id", using: :btree
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "nombre"
     t.string   "descripcion"
@@ -141,6 +151,7 @@ ActiveRecord::Schema.define(version: 20170802162342) do
   add_foreign_key "formulas", "admin_users"
   add_foreign_key "formulas", "products"
   add_foreign_key "items", "admin_users"
+  add_foreign_key "lists", "admin_users"
   add_foreign_key "products", "admin_users"
   add_foreign_key "sheets", "admin_users"
 end
