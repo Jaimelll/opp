@@ -58,7 +58,12 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
       column("soc")
       column("vigencia")
 
-      column("unidad_medida")
+      column("unidad_medida") do |ficha|
+            if ficha.unidad_medida then
+                 Formula.where(product_id:3, orden:ficha.unidad_medida).
+                  select('nombre as dd').first.dd
+            end
+      end
 
            actions
 
@@ -83,7 +88,9 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
               f.input :na, :input_html => { :style =>  'width:30%'}
               f.input :soc, :input_html => { :style =>  'width:30%'}
               f.input :caracteristica, :input_html => { :style =>  'width:30%'}
-              f.input :unidad_medida, :input_html => { :style =>  'width:30%'}
+              f.input :unidad_medida,:label => 'Unidad de medida', :as => :select, :collection =>
+                  Formula.where(product_id:3).order('nombre').map{|u| [u.nombre, u.orden]}
+
 
               f.input :admin_user_id, :input_html => { :value => current_admin_user.id }, :as => :hidden
 
@@ -122,7 +129,12 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
                 row :soc
                 row :caracteristica
                 row :vigencia
-                row :unidad_medida
+                row :unidad_medida  do |ficha|
+                      if ficha.unidad_medida then
+                           Formula.where(product_id:3, orden:ficha.unidad_medida).
+                            select('nombre as dd').first.dd
+                      end
+                end
 
 
 
