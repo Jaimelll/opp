@@ -56,7 +56,12 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
       column("cna")
       column("na")
       column("soc")
-      column("vigencia")
+    column("vigencia")  do |ficha|
+            if ficha.vigencia then
+                 Formula.where(product_id:7, orden:ficha.vigencia).
+                  select('nombre as dd').first.dd
+            end
+          end
 
       column("unidad_medida") do |ficha|
             if ficha.unidad_medida then
@@ -91,6 +96,8 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
               f.input :unidad_medida,:label => 'Unidad de medida', :as => :select, :collection =>
                   Formula.where(product_id:3).order('nombre').map{|u| [u.nombre, u.orden]}
 
+              f.input :vigencia,:label => 'Estado de la ficha', :as => :select, :collection =>
+                      Formula.where(product_id:7).order('nombre').map{|u| [u.nombre, u.orden]}
 
               f.input :admin_user_id, :input_html => { :value => current_admin_user.id }, :as => :hidden
 
@@ -128,7 +135,13 @@ permit_params :codigo_ficha, :codigo_revision, :creada,
                 row :na
                 row :soc
                 row :caracteristica
-                row :vigencia
+
+                row :vigencia  do |ficha|
+                      if ficha.vigencia then
+                           Formula.where(product_id:7, orden:ficha.vigencia).
+                            select('nombre as dd').first.dd
+                      end
+                    end
                 row :unidad_medida  do |ficha|
                       if ficha.unidad_medida then
                            Formula.where(product_id:3, orden:ficha.unidad_medida).

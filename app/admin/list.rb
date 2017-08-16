@@ -14,8 +14,8 @@ ActiveAdmin.register List do
 
 
 menu  priority: 5, label: "Clase"
-permit_params :clase, :descripcion, :orden,
-     :admin_user_id
+permit_params :clase, :descripcion, :orden
+    # :admin_user_id
 
 filter :clase
 filter :descripcion
@@ -42,7 +42,7 @@ filter :orden
                     f.input :clase, :input_html => { :style =>  'width:30%'}
                     f.input :descripcion
                     f.input :orden, :input_html => { :style =>  'width:30%'}
-                    f.input :admin_user_id, :input_html => { :value => current_admin_user.id }, :as => :hidden
+                #    f.input :admin_user_id, :input_html => { :value => current_admin_user.id }, :as => :hidden
 
                            f.actions
 
