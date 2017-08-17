@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :catalogues
   resources :lists
   resources :activities
   resources :sheets
