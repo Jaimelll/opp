@@ -116,8 +116,10 @@ ActiveRecord::Schema.define(version: 20170805234600) do
     t.string   "clase"
     t.string   "descripcion"
     t.integer  "orden"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "admin_user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["admin_user_id"], name: "index_lists_on_admin_user_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -147,9 +149,9 @@ ActiveRecord::Schema.define(version: 20170805234600) do
     t.integer  "vigencia"
     t.integer  "unidad_medida"
     t.integer  "admin_user_id"
-    t.integer  "catalogue_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "catalogue_id"
     t.index ["admin_user_id"], name: "index_sheets_on_admin_user_id", using: :btree
     t.index ["catalogue_id"], name: "index_sheets_on_catalogue_id", using: :btree
   end
@@ -162,7 +164,7 @@ ActiveRecord::Schema.define(version: 20170805234600) do
   add_foreign_key "formulas", "admin_users"
   add_foreign_key "formulas", "products"
   add_foreign_key "items", "admin_users"
+  add_foreign_key "lists", "admin_users"
   add_foreign_key "products", "admin_users"
   add_foreign_key "sheets", "admin_users"
-  add_foreign_key "sheets", "catalogues"
 end
