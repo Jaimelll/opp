@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817140144) do
+ActiveRecord::Schema.define(version: 20170805234600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -167,5 +167,4 @@ ActiveRecord::Schema.define(version: 20170817140144) do
   add_foreign_key "lists", "admin_users"
   add_foreign_key "products", "admin_users"
   add_foreign_key "sheets", "admin_users"
-  add_foreign_key "sheets", "catalogues"
 end

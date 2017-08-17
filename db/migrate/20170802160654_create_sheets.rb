@@ -16,6 +16,7 @@ class CreateSheets < ActiveRecord::Migration[5.0]
       t.integer :vigencia
       t.integer :unidad_medida
       t.references :admin_user, foreign_key: true
+      t.references :catalogue, foreign_key: true
 
       t.timestamps
     end
