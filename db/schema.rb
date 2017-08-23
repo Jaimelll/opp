@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805234600) do
+ActiveRecord::Schema.define(version: 20170822190925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -156,6 +156,29 @@ ActiveRecord::Schema.define(version: 20170805234600) do
     t.index ["catalogue_id"], name: "index_sheets_on_catalogue_id", using: :btree
   end
 
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "numero_proveedor"
+    t.integer  "num_documento_pais"
+    t.string   "des_proveedor"
+    t.string   "direccion_pais"
+    t.string   "telefono_pais"
+    t.string   "correo_pais"
+    t.string   "pag_weeb"
+    t.string   "nro_representante"
+    t.string   "des_representante"
+    t.string   "correo_representante"
+    t.integer  "activo"
+    t.string   "fec_registro"
+    t.string   "mod_registro"
+    t.integer  "tipo_proveedor"
+    t.integer  "calificacion"
+    t.string   "observacion"
+    t.integer  "admin_user_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["admin_user_id"], name: "index_suppliers_on_admin_user_id", using: :btree
+  end
+
   add_foreign_key "activities", "admin_users"
   add_foreign_key "activities", "sheets"
   add_foreign_key "catalogues", "admin_users"
@@ -167,4 +190,5 @@ ActiveRecord::Schema.define(version: 20170805234600) do
   add_foreign_key "lists", "admin_users"
   add_foreign_key "products", "admin_users"
   add_foreign_key "sheets", "admin_users"
+  add_foreign_key "suppliers", "admin_users"
 end

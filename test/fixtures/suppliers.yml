@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero_proveedor: MyString
+  num_documento_pais: 1
+  des_proveedor: MyString
+  direccion_pais: MyString
+  telefono_pais: MyString
+  correo_pais: MyString
+  pag_weeb: MyString
+  nro_representante: MyString
+  des_representante: MyString
+  correo_representante: MyString
+  activo: 1
+  fec_registro: MyString
+  mod_registro: MyString
+  tipo_proveedor: 1
+  calificacion: 1
+  observacion: MyString
+  admin_user: one
+
+two:
+  numero_proveedor: MyString
+  num_documento_pais: 1
+  des_proveedor: MyString
+  direccion_pais: MyString
+  telefono_pais: MyString
+  correo_pais: MyString
+  pag_weeb: MyString
+  nro_representante: MyString
+  des_representante: MyString
+  correo_representante: MyString
+  activo: 1
+  fec_registro: MyString
+  mod_registro: MyString
+  tipo_proveedor: 1
+  calificacion: 1
+  observacion: MyString
+  admin_user: two
