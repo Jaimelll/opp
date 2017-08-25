@@ -20,7 +20,37 @@ permit_params :numero_proveedor, :num_documento_pais, :des_proveedor,
   :tipo_proveedor, :calificacion, :observacion, :admin_user_id
 
 
-  
+  form :title => 'Edicion Fichas' do |f|
+
+      f.inputs  do
+
+
+
+         f.input :numero_proveedor, :input_html => { :style =>  'width:30%'}
+         f.input :num_documento_pais, :input_html => { :style =>  'width:30%'}
+         f.input :des_proveedor, :input_html => { :style =>  'width:30%'}
+         f.input :direccion_pais, :input_html => { :style =>  'width:30%'}
+         f.input :telefono_pais, :input_html => { :style =>  'width:30%'}
+         f.input :correo_pais, :input_html => { :style =>  'width:30%'}
+         f.input :pag_weeb, :input_html => { :style =>  'width:30%'}
+         f.input :nro_representante, :input_html => { :style =>  'width:30%'}
+         f.input :des_representante, :input_html => { :style =>  'width:30%'}
+         f.input :correo_representante, :input_html => { :style =>  'width:30%'}
+         f.input :activo, :input_html => { :style =>  'width:30%'}
+         f.input :fec_registro, :input_html => { :style =>  'width:30%'}
+         f.input :mod_registro, :input_html => { :style =>  'width:30%'}
+         f.input :tipo_proveedor, :input_html => { :style =>  'width:30%'}
+         f.input :calificacion, :input_html => { :style =>  'width:30%'}
+         f.input :observacion, :input_html => { :style =>  'width:30%'}
+         f.input :admin_user_id, :input_html => { :value => current_admin_user.id }, :as => :hidden
+
+                f.actions
+
+
+
+      end
+    end
+
 
 
 
