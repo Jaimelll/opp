@@ -26,22 +26,29 @@ permit_params :numero_proveedor, :num_documento_pais, :des_proveedor,
 
 
 
-         f.input :numero_proveedor, :input_html => { :style =>  'width:30%'}
-         f.input :num_documento_pais, :input_html => { :style =>  'width:30%'}
-         f.input :des_proveedor, :input_html => { :style =>  'width:30%'}
-         f.input :direccion_pais, :input_html => { :style =>  'width:30%'}
-         f.input :telefono_pais, :input_html => { :style =>  'width:30%'}
-         f.input :correo_pais, :input_html => { :style =>  'width:30%'}
-         f.input :pag_weeb, :input_html => { :style =>  'width:30%'}
-         f.input :nro_representante, :input_html => { :style =>  'width:30%'}
-         f.input :des_representante, :input_html => { :style =>  'width:30%'}
-         f.input :correo_representante, :input_html => { :style =>  'width:30%'}
-         f.input :activo, :input_html => { :style =>  'width:30%'}
-         f.input :fec_registro, :input_html => { :style =>  'width:30%'}
-         f.input :mod_registro, :input_html => { :style =>  'width:30%'}
-         f.input :tipo_proveedor, :input_html => { :style =>  'width:30%'}
+         f.input :numero_proveedor,:label => 'Codigo identificacion ', :input_html => { :style =>  'width:30%'}
+         f.input :num_documento_pais,:label => 'Pais ', :as => :select, :collection =>
+             Formula.where(product_id:8).order('nombre').map{|u| [u.nombre, u.orden]}
+           f.input :des_proveedor,:label => 'Proveedor Descripcion', :input_html => { :style =>  'width:30%'}
+           f.input :direccion_pais,:label => 'Direccion', :input_html => { :style =>  'width:30%'}
+
+         f.input :telefono_pais,:label => 'Telefono', :input_html => { :style =>  'width:30%'}
+         f.input :correo_pais,:label => 'Correo', :input_html => { :style =>  'width:30%'}
+         f.input :pag_weeb,:label => 'Pagina Web', :input_html => { :style =>  'width:30%'}
+         f.input :nro_representante,:label => 'Telefono Representante', :input_html => { :style =>  'width:30%'}
+         f.input :des_representante,:label => 'Nombre de Representante', :input_html => { :style =>  'width:30%'}
+         f.input :correo_representante,:label => 'Correo de Representante', :input_html => { :style =>  'width:30%'}
+         f.input :activo, :as => :select, :collection =>
+             Formula.where(product_id:9).order('nombre').map{|u| [u.nombre, u.orden]}
+
+
+
+         f.input :tipo_proveedor,:label => 'Tipo de Proveedor', :as => :select, :collection =>
+             Formula.where(product_id:11).order('nombre').map{|u| [u.nombre, u.orden]}
          f.input :calificacion, :input_html => { :style =>  'width:30%'}
-         f.input :actividad, :input_html => { :style =>  'width:30%'}
+         f.input :actividad,:label => 'Actividad principal', :as => :select, :collection =>
+             Formula.where(product_id:10).order('nombre').map{|u| [u.nombre, u.orden]}
+
          f.input :observacion, :input_html => { :style =>  'width:30%'}
          f.input :admin_user_id, :input_html => { :value => current_admin_user.id }, :as => :hidden
 
