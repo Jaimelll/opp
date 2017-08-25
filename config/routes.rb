@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  
-  resources :suppliers
-  resources :catalogues
+
+
+
   resources :lists
   resources :activities
   resources :sheets
