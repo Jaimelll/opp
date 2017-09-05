@@ -10,7 +10,7 @@ class Ability
       user ||= User.new # guest user (not logged in)
 
     case user.id # a_variable is the variable we want to compare
-    when 4,5,7
+    when 4,5,7,8
           can :manage, :all
         else
           can :read, ActiveAdmin::Page, :name =>"Dashboard"
