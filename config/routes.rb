@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :employees
   resources :suppliers
   resources :lists
   resources :activities

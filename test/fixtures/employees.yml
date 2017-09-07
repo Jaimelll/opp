@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dni: MyString
+  ape_pat: MyString
+  ape_mat: MyString
+  nombres: MyString
+  direccion: MyString
+  telefono: MyString
+  correo: MyString
+  fec_nacimiento: 2017-09-07
+  estado: 1
+  tip_tra: 1
+  esta_civil: 1
+  afp: 1
+  admin_user: one
+
+two:
+  dni: MyString
+  ape_pat: MyString
+  ape_mat: MyString
+  nombres: MyString
+  direccion: MyString
+  telefono: MyString
+  correo: MyString
+  fec_nacimiento: 2017-09-07
+  estado: 1
+  tip_tra: 1
+  esta_civil: 1
+  afp: 1
+  admin_user: two
