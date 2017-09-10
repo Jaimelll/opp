@@ -6,7 +6,8 @@ ActiveAdmin.register Employee do
        :nombres, :direccion, :telefono,
        :correo, :fec_nacimiento, :estado,
        :tip_tra, :esta_civil, :afp,
-       :admin_user_id
+       :admin_user_id, :foto, :ape_nom,
+       :correo_corp, :fec_inicon, :fec_tercon
 
 
 filter :ape_pat
@@ -41,12 +42,44 @@ index :title => 'Lista de Empleados' do
 
        f.input :admin_user_id, :input_html => { :value => current_admin_user.id }, :as => :hidden
 
+       f.input :foto, :as => :file, :hint => f.object.foto.present? \
+                ? image_tag(f.object.foto.url(:thumb))
+                 : content_tag(:span, "no hay foto aun")
+
+
+
        f.actions
 
      end
 
    end
 
+   show :title => ' Empleado'  do
+
+           attributes_table  do
+
+
+            row :ape_pat
+
+
+
+           row :ape_mat
+
+
+
+        row :foto do  |item|
+
+          unless item.foto.blank?
+              image_tag item.foto.thumb.url, size: "400"
+          end
+       end
+
+
+
+
+
+           end
+         end
 
 
 
