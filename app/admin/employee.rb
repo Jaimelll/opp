@@ -67,13 +67,6 @@ index :title => 'Lista de Empleados' do
 
 
 
-        row :foto do  |item|
-
-          unless item.foto.blank?
-              image_tag item.foto.thumb.url, size: "400"
-          end
-       end
-
 
 
 
@@ -82,7 +75,22 @@ index :title => 'Lista de Empleados' do
          end
 
 
+         sidebar "Foto" do
 
+               if params[:id] then
+              Employee.where(id:params[:id]).each do |item|
+
+                unless item.foto.blank?
+                 li   image_tag item.foto.thumb.url, size: "250"
+                end
+
+
+             end
+           end
+
+
+
+           end # de sider
 
 
 
