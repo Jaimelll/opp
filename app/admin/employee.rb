@@ -11,6 +11,31 @@ ActiveAdmin.register Employee do
        :cargo, :grado
 
 
+
+       scope :Activos, :default => true do |emples|
+                 emples.where(estado:1)
+            end
+
+      scope :CAS, :default => true do |emples|
+                      emples.where(tip_tra:1)
+           end
+      scope :FFAA, :default => true do |emples|
+                     emples.where(tip_tra:2)
+          end
+      scope :Orden_servicio, :default => true do |emples|
+                  emples.where(tip_tra:3)
+             end
+
+
+       scope :Inactivos, :default => true do |emples|
+                      emples.where(estado:2)
+                 end
+
+       scope :Todos, :default => true do |emples|
+                        emples.order('ape_nom')
+             end
+
+
 filter :ape_nom
 filter :cargo
 filter :grado
@@ -49,8 +74,18 @@ index :title => 'Lista de Empleados' do
        f.input :direccion, :input_html => { :style =>  'width:30%'}
        f.input :telefono, :input_html => { :style =>  'width:30%'}
        f.input :correo, :input_html => { :style =>  'width:30%'}
+       f.input :correo_corp, :input_html => { :style =>  'width:30%'}
        f.input :cargo, :input_html => { :style =>  'width:30%'}
        f.input :grado, :input_html => { :style =>  'width:30%'}
+
+       f.input :estado, :as => :select, :collection =>
+          Formula.where(product_id:12).order('nombre').map{|u| [u.nombre, u.orden]}
+       f.input :tip_tra, :as => :select, :collection =>
+          Formula.where(product_id:13).order('nombre').map{|u| [u.nombre, u.orden]}
+       f.input :esta_civil, :as => :select, :collection =>
+          Formula.where(product_id:14).order('nombre').map{|u| [u.nombre, u.orden]}
+
+
        f.input :admin_user_id, :input_html => { :value => current_admin_user.id }, :as => :hidden
 
        f.input :foto, :as => :file, :hint => f.object.foto.present? \
@@ -80,9 +115,40 @@ index :title => 'Lista de Empleados' do
            end
 
             row :cargo
-            row :grado
+            row :direccion
+            row :telefono
+            row :correo
+            row :correo_corp
 
 
+            row :estado do |emple|
+                      if emple.estado and emple.estado>0 then
+
+                         Formula.where(product_id:12, orden:emple.estado).
+                          select('nombre as dd').first.dd
+
+
+                        end
+                end
+            row :tip_tra do |emple|
+                        if emple.tip_tra and emple.tip_tra>0 then
+
+                         Formula.where(product_id:13, orden:emple.tip_tra).
+                                select('nombre as dd').first.dd
+
+
+                        end
+            end
+
+          row :esta_civil do |emple|
+                      if emple.esta_civil and emple.esta_civil>0 then
+
+                         Formula.where(product_id:14, orden:emple.esta_civil).
+                                          select('nombre as dd').first.dd
+
+
+                        end
+          end
 
 
 
