@@ -19,10 +19,10 @@ ActiveAdmin.register Employee do
       scope :CAS, :default => true do |emples|
                       emples.where(tip_tra:1)
            end
-      scope :FFAA, :default => true do |emples|
+      scope :Orden_servicio, :default => true do |emples|
                      emples.where(tip_tra:2)
           end
-      scope :Orden_servicio, :default => true do |emples|
+      scope :Fuerzas_Armadas, :default => true do |emples|
                   emples.where(tip_tra:3)
              end
 
