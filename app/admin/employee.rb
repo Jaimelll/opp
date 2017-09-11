@@ -1,5 +1,11 @@
 ActiveAdmin.register Employee do
 
+  ActiveAdmin.register Family do
+  belongs_to :employee
+end
+
+
+
   menu  priority: 10, label: "Empleados"
 
   permit_params :dni, :ape_pat, :ape_mat,
@@ -160,7 +166,7 @@ index :title => 'Lista de Empleados' do
 
                if params[:id] then
               Employee.where(id:params[:id]).each do |item|
-
+                @nomb=item.ape_nom.upcase
                 unless item.foto.blank?
                  li   image_tag item.foto.thumb.url, size: "250"
                 end
@@ -168,12 +174,13 @@ index :title => 'Lista de Empleados' do
 
              end
            end
-
-
+          if params[:id] then
+           li      link_to "Carga Familiar:"+"#{@nomb}", admin_employee_families_path(params[:id])
+          end
 
            end # de sider
 
-
+"#{@le} "
 
 
 
