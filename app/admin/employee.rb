@@ -28,7 +28,7 @@ end
       scope :Orden_servicio, :default => true do |emples|
                      emples.where(tip_tra:2)
           end
-      scope :Fuerzas_Armadas, :default => true do |emples|
+      scope :Militares, :default => true do |emples|
                   emples.where(tip_tra:3)
              end
 
