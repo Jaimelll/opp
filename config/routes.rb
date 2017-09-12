@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  resources :students
+  resources :experiences
   resources :families
   resources :employees
   resources :suppliers

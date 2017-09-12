@@ -4,6 +4,13 @@ ActiveAdmin.register Employee do
   belongs_to :employee
 end
 
+ActiveAdmin.register Experience do
+belongs_to :employee
+end
+
+ActiveAdmin.register Student do
+belongs_to :employee
+end
 
 
   menu  priority: 10, label: "Empleados"
@@ -110,7 +117,7 @@ index :title => 'Lista de Empleados' do
 
            attributes_table  do
 
-
+            row :dni
             row :ape_pat
             row :ape_mat
             row :nombres
@@ -178,6 +185,8 @@ index :title => 'Lista de Empleados' do
        ul do
           if params[:id] then
            li      link_to "CARGA FAMILIAR", admin_employee_families_path(params[:id])
+           li      link_to "ESTUDIOS", admin_employee_students_path(params[:id])
+           li      link_to "EXPERIENCIA LABORAL", admin_employee_experiences_path(params[:id])
           end
       end
            end # de sider
