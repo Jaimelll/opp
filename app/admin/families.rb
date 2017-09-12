@@ -17,7 +17,22 @@ index :title => 'Lista de Carga Familiar' do
          fam.ape_nom.upcase
          end
 
-        column("tipo_rela")
+
+        column("Tipo de Relacion", :sortable => :tipo_rela) do |fam|
+
+         if fam.tipo_rela and fam.tipo_rela>0 then
+
+            Formula.where(product_id:15, orden:fam.tipo_rela).
+             select('nombre as dd').first.dd
+
+
+           end
+
+
+
+         end
+
+
         column("fec_nac")
 
 
@@ -88,7 +103,7 @@ index :title => 'Lista de Carga Familiar' do
                  end
                end
               if params[:employee_id] then
-            
+
                li link_to "Nombre: "+"#{@nomb}", admin_employee_path(params[:employee_id])
 
               end
