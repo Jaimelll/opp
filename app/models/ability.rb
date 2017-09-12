@@ -16,7 +16,8 @@ class Ability
     when 7,8 #   ,hector,roy
           can :read, ActiveAdmin::Page, :name =>"Dashboard"
 
-          can [:create,:read,:update,:destroy],  [Activity,Detail,Employee,Family, Formula, Item, List, Product, Supplier]
+          can [:create,:read,:update,:destroy],  [Activity,Detail,Employee,Family,
+             Formula, Item, List, Product, Supplier, Student, Experience]
 
 
     else
