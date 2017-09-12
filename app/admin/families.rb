@@ -88,7 +88,9 @@ index :title => 'Lista de Carga Familiar' do
                  end
                end
               if params[:employee_id] then
-               li      strong "Nombre: "+"#{@nomb}"
+            
+               li link_to "Nombre: "+"#{@nomb}", admin_employee_path(params[:employee_id])
+
               end
 
                end # de sider
