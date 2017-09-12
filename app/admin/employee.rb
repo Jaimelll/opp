@@ -162,25 +162,27 @@ index :title => 'Lista de Empleados' do
          end
 
 
-         sidebar "Foto" do
+         sidebar "Foto", except: :index  do
 
                if params[:id] then
               Employee.where(id:params[:id]).each do |item|
                 @nomb=item.ape_nom.upcase
                 unless item.foto.blank?
                  li   image_tag item.foto.thumb.url, size: "250"
+                 li      strong "Nombre: "+"#{@nomb}"
                 end
 
 
              end
            end
+       ul do
           if params[:id] then
-           li      link_to "Carga Familiar:"+"#{@nomb}", admin_employee_families_path(params[:id])
+           li      link_to "CARGA FAMILIAR", admin_employee_families_path(params[:id])
           end
-
+      end
            end # de sider
 
-"#{@le} "
+
 
 
 

@@ -88,7 +88,7 @@ index :title => 'Lista de Carga Familiar' do
                  end
                end
               if params[:employee_id] then
-               li      link_to "Nombre:"+"#{@nomb}"
+               li      strong "Nombre: "+"#{@nomb}"
               end
 
                end # de sider
