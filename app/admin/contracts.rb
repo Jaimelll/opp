@@ -109,9 +109,15 @@ ActiveAdmin.register Contract do
            li "Fin de contrato: "+contr. fec_tercon.to_s
            li "Puesto:  "+contr.puesto
            li "Estado: ACTIVO"
+           li "Ingreso: "+Contract.where(employee_id:params[:employee_id],
+               tipo_contra:contr.tipo_contra).minimum('fec_inicon').to_s
        end
-          Employee.where(id:params[:employee_id]).update_all( fec_inicon:contr.fec_inicon,
-          fec_tercon:contr.fec_tercon,estado:1)
+
+          Employee.where(id:params[:employee_id]).update_all( fec_inicon:Contract.
+              where(employee_id:params[:employee_id],
+              tipo_contra:contr.tipo_contra).minimum('fec_inicon') ,
+              fec_tercon:contr.fec_tercon,estado:1)
+
           @conta=1
      end
    end
@@ -121,6 +127,7 @@ ActiveAdmin.register Contract do
 
           li "Estado: INACTIVO"
        end
+
        Employee.where(id:params[:employee_id]).update_all( fec_inicon:nil,
        fec_tercon:nil,estado:2)
 
