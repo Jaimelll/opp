@@ -12,6 +12,10 @@ ActiveAdmin.register Student do
 belongs_to :employee
 end
 
+ActiveAdmin.register Contract do
+belongs_to :employee
+end
+
 
   menu  priority: 10, label: "Empleados"
 
@@ -162,6 +166,11 @@ index :title => 'Lista de Empleados' do
 
                         end
           end
+           row 'Inicio de contrato' do |emple|
+             emple.fec_inicon
+           end
+
+
 
 
 
@@ -187,6 +196,7 @@ index :title => 'Lista de Empleados' do
            li      link_to "CARGA FAMILIAR", admin_employee_families_path(params[:id])
            li      link_to "ESTUDIOS", admin_employee_students_path(params[:id])
            li      link_to "EXPERIENCIA LABORAL", admin_employee_experiences_path(params[:id])
+          li      link_to "CONTRATOS", admin_employee_contracts_path(params[:id])
           end
       end
            end # de sider

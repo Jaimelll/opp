@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contracts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Num cont</th>
+      <th>Fec inicon</th>
+      <th>Fec tercon</th>
+      <th>Puesto</th>
+      <th>Cod hor</th>
+      <th>Remuneracion</th>
+      <th>Area</th>
+      <th>Tipo contra</th>
+      <th>Fec retiro</th>
+      <th>Motivo retir</th>
+      <th>Obs</th>
+      <th>Admin user</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contracts.each do |contract| %>
+      <tr>
+        <td><%= contract.employee %></td>
+        <td><%= contract.num_cont %></td>
+        <td><%= contract.fec_inicon %></td>
+        <td><%= contract.fec_tercon %></td>
+        <td><%= contract.puesto %></td>
+        <td><%= contract.cod_hor %></td>
+        <td><%= contract.remuneracion %></td>
+        <td><%= contract.area %></td>
+        <td><%= contract.tipo_contra %></td>
+        <td><%= contract.fec_retiro %></td>
+        <td><%= contract.motivo_retir %></td>
+        <td><%= contract.obs %></td>
+        <td><%= contract.admin_user %></td>
+        <td><%= link_to 'Show', contract %></td>
+        <td><%= link_to 'Edit', edit_contract_path(contract) %></td>
+        <td><%= link_to 'Destroy', contract, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contract', new_contract_path %>

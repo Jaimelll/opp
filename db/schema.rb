@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912183034) do
+ActiveRecord::Schema.define(version: 20170913173139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +59,25 @@ ActiveRecord::Schema.define(version: 20170912183034) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
   end
 
-
+  create_table "contracts", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.integer  "num_cont"
+    t.date     "fec_inicon"
+    t.date     "fec_tercon"
+    t.string   "puesto"
+    t.integer  "cod_hor"
+    t.float    "remuneracion"
+    t.integer  "area"
+    t.integer  "tipo_contra"
+    t.date     "fec_retiro"
+    t.string   "motivo_retir"
+    t.string   "obs"
+    t.integer  "admin_user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["admin_user_id"], name: "index_contracts_on_admin_user_id", using: :btree
+    t.index ["employee_id"], name: "index_contracts_on_employee_id", using: :btree
+  end
 
   create_table "details", force: :cascade do |t|
     t.integer  "area"
@@ -73,8 +91,6 @@ ActiveRecord::Schema.define(version: 20170912183034) do
     t.index ["admin_user_id"], name: "index_details_on_admin_user_id", using: :btree
     t.index ["item_id"], name: "index_details_on_item_id", using: :btree
   end
-
-
 
   create_table "employees", force: :cascade do |t|
     t.string   "dni"
@@ -168,11 +184,6 @@ ActiveRecord::Schema.define(version: 20170912183034) do
     t.index ["admin_user_id"], name: "index_lists_on_admin_user_id", using: :btree
   end
 
-
-
-
-
-
   create_table "products", force: :cascade do |t|
     t.string   "nombre"
     t.string   "descripcion"
@@ -247,7 +258,10 @@ ActiveRecord::Schema.define(version: 20170912183034) do
 
   add_foreign_key "activities", "admin_users"
   add_foreign_key "activities", "sheets"
+  add_foreign_key "contracts", "admin_users"
+  add_foreign_key "contracts", "employees"
   add_foreign_key "details", "admin_users"
+  add_foreign_key "details", "items"
   add_foreign_key "employees", "admin_users"
   add_foreign_key "experiences", "admin_users"
   add_foreign_key "experiences", "employees"

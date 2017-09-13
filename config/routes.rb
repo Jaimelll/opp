@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :contracts
   resources :students
   resources :experiences
   resources :families
