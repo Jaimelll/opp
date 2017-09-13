@@ -17,7 +17,7 @@ class Ability
           can :read, ActiveAdmin::Page, :name =>"Dashboard"
 
           can [:create,:read,:update,:destroy],  [Activity,Detail,Employee,Family,
-             Formula, Item, List, Product, Supplier, Student, Experience]
+             Formula, Item, List, Product, Supplier, Student, Experience, Contract]
 
 
     else
