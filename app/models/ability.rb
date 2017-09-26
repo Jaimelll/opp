@@ -10,10 +10,10 @@ class Ability
       user ||= User.new # guest user (not logged in)
 
     case user.id # a_variable is the variable we want to compare
-    when 5 #jaime
+    when 5,7 #jaime
           can :manage, :all
 
-    when 7,8 #   ,hector,roy
+    when 8 #   ,hector,roy
           can :read, ActiveAdmin::Page, :name =>"Dashboard"
 
           can [:create,:read,:update,:destroy],  [Activity,Detail,Employee,Family,
