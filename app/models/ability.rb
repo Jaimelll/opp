@@ -9,8 +9,8 @@ class Ability
     #
       user ||= User.new # guest user (not logged in)
 
-    case user.id # a_variable is the variable we want to compare
-    when 5,7 #jaime
+    case user.categoria # a_variable is the variable we want to compare
+    when 1,5,7 #jaime
           can :manage, :all
 
     when 8 #   ,hector,roy

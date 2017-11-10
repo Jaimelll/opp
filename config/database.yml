@@ -4,7 +4,6 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-
 development:
 
   adapter: postgresql
@@ -19,13 +18,13 @@ development:
 
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  username: postgres
-  password: password
-  host: 127.0.0.1
-  port: 5432
-  database: oppt
+  adapter: oracle_enhanced
+  #encoding: unicode
+  username: dbopp
+  password: ORACLE
+  #host: 127.0.0.1
+  #port: 1521
+  database: //oracledbdes:1521/dbdes
   pool: 5
   timeout: 5000
 

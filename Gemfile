@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'ruby-oci8'
+gem 'ruby-plsql'
+gem 'activerecord-oracle_enhanced-adapter'
+
 gem 'cancancan'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -8,8 +12,6 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
-
-
 
 #gem 'pg', '~> 0.19.0'
 gem 'pg', '~> 0.18.2'
